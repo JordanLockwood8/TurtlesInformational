@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Turtle>
+
+<h2>Turtles</h2>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Terrapin</th>
+        <th>Category ID</th>
+    </tr>
+
+    @foreach (var turtle in Model)
+    {
+        <tr>
+            <td>@turtle.TurtleID</td>
+            <td>@turtle.Name</td>
+            <th>@turtle.Terrapin</th>
+            <th>@turtle.CategoryID</th>
+        </tr>
+    }
+
+</table>

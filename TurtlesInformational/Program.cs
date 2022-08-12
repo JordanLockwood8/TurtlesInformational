@@ -1,17 +1,22 @@
+using MySql.Data.MySqlClient;
+using System.Data;
+using TurtlesInformational;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+builder.Services.AddScoped<IDbConnection>((s) =>
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+    IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("turtles"));
+    conn.Open();
+    return conn;
+});
+
+builder.Services.AddTransient<ITurtleRepository, TurtleRepository>();
+
+var app = builder.Build();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
