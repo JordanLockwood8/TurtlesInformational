@@ -10,12 +10,25 @@ namespace TurtlesInformational.Controllers
         {
             this.repo = repo;
         }
-
-
         public IActionResult Index()
         {
             var turtles = repo.GetAllTurtles();
             return View(turtles);
+        }
+        public IActionResult ViewByTurtleID(int id)
+        {
+            var turtle = repo.GetTurtle(id);
+            return View(turtle);
+        }
+        public IActionResult ViewByCategory(int id)
+        {
+            var turtle = repo.GetByCategoryID(id);
+            return View(turtle);
+        }
+        public IActionResult ShowSearchResults(string SearchPhrase)
+        {
+            var filteredTurtle = repo.SearchTurtle(SearchPhrase);
+            return View(filteredTurtle);
         }
     }
 }

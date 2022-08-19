@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" style="background: linear-gradient(to right, #dbf6e5, #0cb349);">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Turtles Informational</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -23,14 +23,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Turtle" asp-action="Index">Turtles</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Turtle" asp-action="Index">All Turtles</a>
                         </li>
+                        <form class="form-inline my-2 my-lg-0">
+                            <div class="input-group mb-2 mr-sm-2">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search Turtle Name" aria-label="Search" name="SearchPhrase">
+                                <button class="btn btn-success my-2 my-sm-0" type="submit" asp-action="ShowSearchResults" asp-controller="Turtle" value="Search">Search</button>
+                            </div>
+                        </form>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

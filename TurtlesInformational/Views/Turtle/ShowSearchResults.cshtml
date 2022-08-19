@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Turtle>
+
+<style>
+    a{
+       color: green;
+       background-color: transparent;
+       text-decoration: none;
+</style>
+@if (Model.Any())
+{
+    <h2>Turtles</h2>
+    <h3>Here is a list of turtles that met your search result! Click on the turtle you would like to learn about!</h3>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+        </tr>
+
+        @foreach (var turtle in Model)
+        {
+            <tr>
+                <td><a href=/Turtle/ViewByTurtleID/@turtle.TurtleID>@turtle.Name</a></td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h2>No search results please try again!</h2>
+}

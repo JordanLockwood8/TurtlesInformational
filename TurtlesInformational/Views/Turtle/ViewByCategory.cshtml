@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Turtle>
+
+@if(Model.First().CategoryID == 1)
+{
+    <h1>The Worlds Oceans</h1>
+   <p> &nbsp;&nbsp;&nbsp;&nbsp;The ocean is a vast place that Covers 70% of the worlds surface, yet there are only 7 species of turtle that reside there!
+       Every single turtle on this list is endangered if not critically endangered! 
+       Most turtles reside in warmer waters but some have been known to travel up to 12,774 miles across the entirety of the pacific ocean!
+       From coral reefs to crushing 4,200 ft deep one of the most ancient species on this planet can be found!
+       Species of turtles that reside in the oceans are always classified as Turtles, In other sections this is further explained!
+       Below are the seven species of sea turtls!
+   </p>
+}
+else if(Model.First().CategoryID == 2)
+{
+   <h1>Fresh Water</h1>
+   <p> 
+       &nbsp;&nbsp;&nbsp;&nbsp;Only 3% of water in the world is classified as freshwater, Yet it holds some of the most diverse animals in the world.
+       Turtles are no different , there are 356 species of turtles that fill thoes waters! There are two classifications of turtles that call freshwater their home; 
+       Turtles and Terripins! A terripin is loosly classified by if it is both on land and in the water while a turtle is water based (except when nesting!).
+       Turtles can be found anywhere from streams to lakes and have adapted in many ways to survive all throughout the world!
+       Here are some examples of both down below!
+   </p>
+}
+else if(Model.First().CategoryID == 3)
+{
+   <h1>Land</h1>
+   <p> 
+       &nbsp;&nbsp;&nbsp;&nbsp;We share the land with only 49 species of tortoises and many are on indangerd lists!
+       Turtles and tortoises are indangered for many reasons most have to do with humans, rather it be shell hunting , human expansion, habitat distruction, or Climate change!
+       Tortoises have adapted in some interesting ways to adapt to many different biomes from the brutal Sahara Desert to the saturated Amazon!
+       Tortoises have walked the earth for 55 million years in perspective humans have only roughly been around for 6 million years!
+       While turtles are water based, terripins are land and water Tortoises are mostly Land based, but that doesn't make them any less successful!
+       Below we can learn about some of the dierse species of Tortoise!
+   </p>
+}
+
+<h3>Click on the Turtles name you would like to learn about!</h3>
+
+<style>
+    .item1 {
+        grid-area: name;
+    }
+
+    .item2 {
+        grid-area: pic;
+    }
+
+    .item3 {
+        grid-area: Terripin;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'pic name name name name'
+            'pic Terripin Terripin Terripin Terripin';
+        gap: 5px;
+        background-color: #2196F3;
+        padding: 5px;
+    }
+
+        .grid-container > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 5px;
+            font-size: 20px;
+        }
+
+</style>
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="grid-container">
+            <div class="item1"><a href=/Turtle/ViewByTurtleID/@item.TurtleID>@item.Name</a></div>
+            <div style="object-fit: fill;" class="item2"><img src="@item.Pic" alt="Turtle" width="300" height="200"></div>
+            <div class="item3">Terrapin: @item.Terrapin</div>
+        </div>
+    }
+</div>
+

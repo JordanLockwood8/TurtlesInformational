@@ -1,0 +1,51 @@
+﻿@model Turtle
+
+<style>
+    .item1 {
+        grid-area: name;
+    }
+
+    .item2 {
+        grid-area: pic;
+    }
+
+    .item3 {
+        grid-area: scientificName;
+    }
+    .item4 {
+        grid-area: biome;
+    }
+    .item5 {
+        grid-area: info;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'pic name name scientificName scientificName'
+            'pic biome biome biome biome'
+            'info info info info info'
+            'info info info info info'
+            'info info info info info';
+        gap: 5px;
+        background-color: rgb(2, 185, 2);
+        padding: 5px;
+    }
+
+        .grid-container > div {
+            background-color: rgba(230, 240, 232, 0.8);
+            text-align: center;
+            padding: 5px;
+            font-size: 25px;
+        }
+
+</style>
+<div>
+    <div class="grid-container">
+        <div class="item1">Name: @Model.Name</div>
+        <div style="object-fit: fill;" class="item2"><img src="@Model.Pic" alt="Turtle" width="300" height="200"></div>
+        <div class="item3"> Scientific name: @Model.ScientificName</div>
+        <div class="item4">Location: @Model.Biome</div>
+        <div class="item5">Facts: @Model.Info</div>
+    </div>
+</div>

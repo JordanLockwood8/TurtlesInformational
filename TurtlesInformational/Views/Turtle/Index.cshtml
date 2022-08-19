@@ -1,22 +1,30 @@
 ﻿@model IEnumerable<Turtle>
-
-<h2>Turtles</h2>
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Terrapin</th>
-        <th>Category ID</th>
-    </tr>
-
-    @foreach (var turtle in Model)
-    {
+    <style>
+        table{
+            background-image: url("../css/Images/depositphotos_153559098-stock-photo-newly-hatched-baby-turtle-toward.jpg");
+            height: 100%;
+            width : 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+<div>
+     <h2>Turtles</h2>
+    <h3>Here is a list of all turtles so far in this informational! Click on one to learn about it!</h3>
+</div>
+<div>
+    <table class="table">
         <tr>
-            <td>@turtle.TurtleID</td>
-            <td>@turtle.Name</td>
-            <th>@turtle.Terrapin</th>
-            <th>@turtle.CategoryID</th>
+            <th>Name of Turtles!</th>
         </tr>
-    }
 
-</table>
+        @foreach (var turtle in Model)
+        {
+            <tr>
+                <td><a href=/Turtle/ViewByTurtleID/@turtle.TurtleID>@turtle.Name</a></td>
+            </tr>
+        }
+
+    </table>
+</div>
